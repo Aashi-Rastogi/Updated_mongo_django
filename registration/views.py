@@ -1,10 +1,13 @@
-from django.shortcuts import render
-from registration.models import Employee
-def index(request):
-   employee = Employee.objects.create(
-        email="pedro.kong@company.com",
-        first_name="Pedro",
-        last_name="Kong"
-   )
-   employee.save()
-   return render(request, 'index.html', {})
+from django.shortcuts import render, get_object_or_404
+from registration.models import Value
+from django.http import HttpResponse
+def letsPostIt(request):
+ post_text = request.POST.get('location')
+ post = Value(text=post_text)
+ post.save()
+ return HttpResponse()
+from registration.models import Value 
+def gmaps(request):
+ val = Value.objects.all()
+ return render(request, 'gmaps.html', {'values': val})
+

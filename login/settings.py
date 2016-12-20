@@ -74,14 +74,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'login.wsgi.application'
 
+STATIC_URL = '/static/'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 from mongoengine import connect
-MONGO_DATABASE_NAME = 'testdb'
+MONGO_DATABASE_NAME = 'admin'
 MONGO_HOST='127.0.0.1'
 MONGO_PORT = 27017
-connect(MONGO_DATABASE_NAME,username='admin',password='Kirti2711')
+connect(MONGO_DATABASE_NAME,username='myUserAdmin',password='abc123')
 
 DATABASES = {
     'default': {
